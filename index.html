@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Protecting Sleep & Success — Digital Sleep Wellness</title>
+
+  <style>
+    :root{
+      --bg:#f6f8fb;
+      --card:#ffffff;
+      --muted:#58616a;
+      --accent:#ffce55;
+      --blue:#d8eafe;
+      --purple:#efe7ff;
+      --yellow:#fff8e6;
+      --nav-height:72px;
+      --max-w:1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--bg);
+      color:#172026;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.55;
+    }
+
+    /* NAV */
+    nav{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      height:var(--nav-height);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 28px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.9));
+      border-bottom:1px solid rgba(20,30,40,0.04);
+      z-index:1200;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 6px 20px rgba(15,20,30,0.04);
+    }
+    nav .brand{font-weight:700; letter-spacing: -0.2px;}
+    nav .links a{
+      margin-left:18px;
+      text-decoration:none;
+      color:var(--muted);
+      font-weight:600;
+      font-size:14px;
+    }
+
+    /* PAGE WRAPPER */
+    .wrap{max-width:var(--max-w); margin:0 auto; padding:calc(var(--nav-height) + 28px) 20px 80px;}
+
+    /* HERO */
+    .hero{
+      display:flex;
+      gap:30px;
+      align-items:center;
+      justify-content:space-between;
+      background:linear-gradient(135deg,#0a2340 0%, #102e4a 65%);
+      color:white;
+      border-radius:14px;
+      padding:48px;
+      margin-bottom:36px;
+      overflow:hidden;
+    }
+    .hero .left {flex:1 1 560px;}
+    .hero h1{font-size:2.25rem; margin:0 0 12px 0; line-height:1.08;}
+    .hero p{margin:0; opacity:0.94; font-size:1.05rem;}
+    .hero .cta{margin-top:18px; display:flex; gap:12px;}
+    .btn{
+      background:#fff; color:#0b2b44; border-radius:10px; padding:10px 14px; font-weight:700; text-decoration:none;
+      box-shadow:0 6px 18px rgba(5,30,50,0.12);
+    }
+    .hero .visual{
+      width:360px; height:230px; border-radius:12px; background: linear-gradient(180deg,#273b63,#1b2b45);
+      display:flex;align-items:center;justify-content:center;font-weight:700;color:rgba(255,255,255,0.9);
+      box-shadow:0 20px 40px rgba(8,16,30,0.25);
+    }
+
+    .hero-img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:12px;
+}
+
+/* GENERAL SECTION IMAGES */
+.section-img{
+  width:100%;
+  max-height:260px;      /* 👈 controls size */
+  object-fit:contain;   /* prevents cropping */
+  border-radius:10px;
+  display:block;
+  box-shadow:0 12px 28px rgba(15,25,40,0.12);
+}
+
+    /* SECTION BLOCK */
+    section{
+      margin-bottom:28px;
+      border-radius:12px;
+      padding:36px;
+      background:var(--card);
+      box-shadow:0 8px 30px rgba(20,30,40,0.03);
+    }
+    .two-col{
+      display:flex;
+      gap:28px;
+      align-items:stretch;
+      flex-wrap:wrap;
+    }
+    .col-left{flex:1 1 520px;}
+    .col-right{flex:0 0 360px; min-width:260px;}
+    h2{margin:0 0 10px 0; font-size:1.4rem;}
+    p{margin:0 0 12px 0; color:var(--muted);}
+
+    /* IMAGE PLACEHOLDERS */
+    .placeholder{
+      height:220px;
+      border-radius:10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#334155;
+      font-weight:700;
+      background:linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.01));
+      border:1px dashed rgba(50,60,70,0.06);
+    }
+
+    /* SMALL INFO BOX */
+    .info-box{
+      background:var(--blue);
+      padding:14px;
+      border-radius:10px;
+      font-size:0.95rem;
+      color:#0b2b44;
+      border:1px solid rgba(10,40,80,0.06);
+      margin-top:8px;
+    }
+
+    /* CTA / BULLETS */
+    ul.bullets{padding-left:18px; margin:8px 0 0 0; color:var(--muted);}
+    li{margin-bottom:6px;}
+
+    /* FOOTER / CITATIONS */
+    .sources {font-size:0.95rem; color:var(--muted);}
+    .cite-link{color:#0b66a8; text-decoration:none; font-weight:600;}
+
+    /* ANIMATIONS */
+    .fade-in{opacity:0; transform:translateY(24px); transition:all 700ms cubic-bezier(.2,.9,.3,1);}
+    .fade-in.visible{opacity:1; transform:translateY(0);}
+
+    /* RESPONSIVE */
+    @media (max-width:900px){
+      .hero{flex-direction:column; text-align:left;}
+      .hero .visual{width:100%; height:180px;}
+      .col-right{flex-basis:100%;}
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="brand">Digital Sleep Wellness</div>
+    <div class="links">
+      <a href="#problem">Problem</a>
+      <a href="#timing">Timing</a>
+      <a href="#consequences">Consequences</a>
+      <a href="#plan">The Plan</a>
+      <a href="#sources">Sources</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+
+    <!-- HERO -->
+    <section class="hero fade-in" id="top">
+      <div class="left">
+        <h1>Protecting Sleep and Success: A Digital-Wellness Path for Students</h1>
+        <p>
+          College and high-school bedrooms have become lit screens at night. Research links bedtime device use
+          to poorer sleep, shorter nights, and worse academic and mental-health outcomes. This site outlines a
+          practical, evidence-based initiative universities can adopt to help students reclaim restful nights.
+        </p>
+
+        <div class="cta">
+          <a class="btn" href="#plan">See the 3-Part Plan</a>
+          <a class="btn" href="#sources" style="background:transparent;color:white;border:1px solid rgba(255,255,255,0.12)">View Sources</a>
+        </div>
+      </div>
+
+      <div class="visual" aria-hidden="true">
+        <img
+          src="images/FPFPrimerCoverGraphic-1-1024x538.webp"
+          alt="Student using a smartphone in bed late at night"
+          class="section-img"
+        />
+      </div>
+      
+    </section>
+
+    <!-- SECTION: THE PROBLEM -->
+    <section id="problem" class="fade-in">
+      <div class="two-col">
+        <div class="col-left">
+          <h2>The Problem: Nighttime Tech Is Everywhere</h2>
+          <p>
+            For many students, evenings end with screens — smartphones, laptops, and streaming. Nearly all adolescents
+            report some device use within an hour of bedtime (Hale et al.). Bedtime tech is associated with waking
+            unrefreshed and daytime sleepiness, and among college students, evening entertainment screen use predicts
+            poorer sleep quality and lower academic performance (Nagata et al.; Hartley et al.).
+          </p>
+
+          <div class="info-box">
+            Why universities should care: poor sleep undermines learning, memory, mood, and retention — outcomes institutions are already measured on.
+          </div>
+        </div>
+
+        <aside class="col-right">
+          <img
+            src="images/phone-in-bed.webp"
+            alt="Student using a smartphone in bed late at night"
+            class="section-img"
+          />        
+        </aside>
+      </div>
+    </section>
+
+    <!-- SECTION: TIMING MATTERS -->
+    <section id="timing" class="fade-in" style="background:var(--yellow);">
+      <div class="two-col">
+        <div class="col-left">
+          <h2>Timing Matters: Blue Light & Habit Loops</h2>
+          <p>
+            It’s not only how much screen time, but when it happens. Evening blue-light exposure suppresses melatonin,
+            shifting circadian timing and delaying sleep onset (Silvani et al.). Simultaneously, apps and social platforms
+            reward continued engagement — reinforcing late-night habits through dopamine-driven loops.
+          </p>
+          <p>
+            Students who open a device to “unwind” often end up scrolling far longer than intended, compounding sleep displacement.
+          </p>
+        </div>
+
+        <aside class="col-right">
+            <img
+            src="images/c976dcf5-dbf2-4403-aaac-c6d034877397-1.png"
+            alt="Infographic explaining how blue light exposure affects melatonin and sleep"
+            class="section-img"
+          />         
+        </aside>
+      </div>
+    </section>
+
+    <!-- SECTION: CONSEQUENCES -->
+    <section id="consequences" class="fade-in">
+      <div class="two-col">
+        <div class="col-left">
+          <h2>Consequences for Health & Learning</h2>
+          <p>
+            The CDC links insufficient sleep with anxiety, depression, impaired decision-making, and weaker immunity (CDC,
+            “Sleep and Health”). Chronic sleep restriction increases risks for cardiometabolic disease and undermines
+            attention, memory consolidation, and self-regulation — all essential for academic success (Tarokh et al.; Okano).
+          </p>
+
+          <p>
+            Even small reductions in sleep predict lower GPAs and higher dropout risk in longitudinal studies, making
+            sleep promotion an evidence-based retention strategy (Okano et al.).
+          </p>
+        </div>
+
+        <aside class="col-right">
+            <img
+            src="images/pillows-to-paychecks-graph.webp"
+            alt="Chart showing relationship between sleep duration, GPA, and future earnings"
+            class="section-img"
+          />        
+        </aside>
+      </div>
+    </section>
+
+    <!-- SECTION: WHY STUDENTS DON'T NOTICE -->
+    <section class="fade-in" style="background:var(--purple);">
+      <div class="two-col">
+        <div class="col-left">
+          <h2>Why Students Don’t Always See the Problem</h2>
+          <p>
+            Night owling is normalized: cultural pressure, perceived productivity at night, and the addictiveness of
+            apps make late-night device use feel routine. Without institutional guidance, individual willpower alone
+            rarely fixes these systemic patterns.
+          </p>
+
+          <p>
+            The transition to college removes parental structure just as bedtime device habits become more entrenched,
+            so institutions are uniquely positioned to intervene early and effectively.
+          </p>
+        </div>
+
+        <aside class="col-right">
+            <div class="info-box" style="font-style:italic;">
+              “I always tell myself I’ll just scroll for five minutes, but suddenly it’s past midnight and I’m exhausted the next day.”
+              <div style="margin-top:8px;font-weight:700;">— A.A.</div>
+            </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SECTION: THE 3-PART PLAN -->
+    <section id="plan" class="fade-in">
+      <h2>The Solution: A 3-Part Digital Sleep Wellness Initiative</h2>
+
+      <!-- PART 1 -->
+      <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:16px;">
+        <div style="flex:1 1 540px;">
+          <h3 style="margin:6px 0 8px 0;">Part 1 — Digital Sleep Wellness Module</h3>
+          <p style="color:var(--muted);margin-bottom:8px;">
+            A mandatory pre-arrival online module (modeled on alcohol/consent trainings) introduces students to sleep physiology,
+            how evening tech disrupts sleep, and practical wind-down strategies. Content includes a short pre-assessment,
+            animated lessons, doctor/student testimonies, and a personalized sleep plan exercise (Mead et al.; Silvani).
+          </p>
+          <ul class="bullets">
+            <li>10–12 question pre-assessment (private, self-reflective)</li>
+            <li>Animated explainer + short readings on melatonin & habit design</li>
+            <li>Outcome: a personalized wind-down plan and completion certificate</li>
+          </ul>
+        </div>
+
+        <div style="flex:0 0 320px;">
+        </div>
+      </div>
+
+      <!-- PART 2 -->
+      <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:22px;">
+        <div style="flex:0 0 320px;">
+        </div>
+
+        <div style="flex:1 1 540px;">
+          <h3 style="margin:6px 0 8px 0;">Part 2 — Tech Wind-Down Toolkit</h3>
+          <p style="color:var(--muted);margin-bottom:8px;">
+            A low-cost toolkit provided at orientation helps students translate knowledge into habit. Components include:
+            a short printed guide, QR links to setup instructions and apps, optional blue-light filter stickers, a simple sleep kit
+            (mask/earplugs), and a charger-away sign to discourage bedside charging.
+          </p>
+          <ul class="bullets">
+            <li>Simple, actionable strategies (e.g., device away 30 min before bed)</li>
+            <li>QR resources for device settings and evidence-based apps</li>
+            <li>Low cost and easy to distribute during welcome events</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PART 3 -->
+      <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:22px;">
+        <div style="flex:1 1 540px;">
+          <h3 style="margin:6px 0 8px 0;">Part 3 — Peer Wellness Ambassadors</h3>
+          <p style="color:var(--muted);margin-bottom:8px;">
+            Trained student volunteers host brief dorm workshops, run social campaigns, and provide peer support.
+            Peer-led outreach normalizes healthy sleep and leverages social influence to shift norms more effectively than top-down mandates.
+          </p>
+          <ul class="bullets">
+            <li>Workshops, socials, and one-on-one dorm outreach</li>
+            <li>Peer reinforcement increases adoption and sustainability</li>
+          </ul>
+        </div>
+
+        <div style="flex:0 0 320px;">
+        </div>
+      </div>
+
+      <div style="margin-top:18px;">
+        <div class="info-box">
+          Implementation note: these interventions prioritize education, supportive tools, and nudges rather than bans — meeting students where they are while protecting institutional missions of learning and well-being.
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: CALL TO ACTION -->
+    <section class="fade-in" style="background:linear-gradient(90deg,#f7fbff,#fff7f1);">
+      <div class="two-col">
+        <div class="col-left">
+          <h2>Call to Action</h2>
+          <p>
+            Sleep isn’t a personal luxury — it is a core academic resource. Universities should adopt scalable sleep promotion
+            strategies that pair evidence with practical supports. By doing so, institutions help students arrive better rested,
+            learn more effectively, and build lifelong habits for resilience.
+          </p>
+          <p><strong>Start small:</strong> pilot the module with one freshman cohort and distribute a toolkit at orientation. Measure sleep outcomes and GPA/retention metrics to evaluate impact.</p>
+        </div>
+
+        <aside class="col-right">
+            <img
+            src="images/download.jpeg"
+            alt="Roadmap showing pilot sleep module, orientation toolkit rollout, and evaluation of sleep and academic outcomes"
+            class="section-img"
+          />
+        </aside>
+      </div>
+    </section>
+
+    <!-- SOURCES -->
+    <section id="sources" class="fade-in">
+      <h2>Works Cited</h2>
+
+      <div class="sources" style="margin-top:12px; display:grid; gap:10px;">
+        <div>
+          <div><strong>Centers for Disease Control and Prevention.</strong> “Sleep and Health.” Centers for Disease Control and Prevention, 6 Sept. 2024.</div>
+          <div><a class="cite-link" href="https://www.cdc.gov/physical-activity-education/staying-healthy/sleep.html" target="_blank" rel="noopener">CDC — Sleep and Health</a></div>
+        </div>
+
+        <div>
+          <div><strong>Hale, Lauren, et al.</strong> “Screen Time and Sleep among School-Aged Children and Adolescents: A Systematic Literature Review.” <em>Sleep Health</em>, vol. 4, no. 3, 2018, pp. 250–65.</div>
+          <div><a class="cite-link" href="https://doi.org/10.1016/j.sleh.2018.02.002" target="_blank" rel="noopener">doi.org/10.1016/j.sleh.2018.02.002</a></div>
+        </div>
+
+        <div>
+          <div><strong>Hartley, John E. K., Louise J. Levin, and Michael Currie.</strong> “Sleep Quality, Smartphone Dependency and Academic Performance: A Study of University Students.” <em>Journal of Behavioral Addictions</em>, vol. 9, no. 4, 2020, pp. 1123–35.</div>
+          <div><a class="cite-link" href="https://doi.org/10.1556/2006.2020.00067" target="_blank" rel="noopener">doi.org/10.1556/2006.2020.00067</a></div>
+        </div>
+
+        <div>
+          <div><strong>Mead, Michael P., et al.</strong> “The Theory of Planned Behavior and Sleep Opportunity: An Intensive Longitudinal Study.” <em>Behavioral Sleep Medicine</em>, 2021. PubMed Central.</div>
+          <div><a class="cite-link" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8674382/" target="_blank" rel="noopener">ncbi.nlm.nih.gov/pmc/articles/PMC8674382</a></div>
+        </div>
+
+        <div>
+          <div><strong>Nagata, Jason M., et al.</strong> “Screen Time before Bedtime: Implications for Sleep and Adolescent Well-Being.” <em>Sleep Health</em>, vol. 6, no. 3, 2020, pp. 276–83.</div>
+          <div><a class="cite-link" href="https://doi.org/10.1016/j.sleh.2020.01.004" target="_blank" rel="noopener">doi.org/10.1016/j.sleh.2020.01.004</a></div>
+        </div>
+
+        <div>
+          <div><strong>Okano, Ken A., et al.</strong> “Sleep Quality and Academic Performance in College Students: A Longitudinal Study.” <em>Journal of Adolescent Health</em>, vol. 65, no. 2, 2019, pp. 237–43.</div>
+          <div><a class="cite-link" href="https://doi.org/10.1016/j.jadohealth.2019.03.013" target="_blank" rel="noopener">doi.org/10.1016/j.jadohealth.2019.03.013</a></div>
+        </div>
+
+        <div>
+          <div><strong>Silvani, Aurelio, et al.</strong> “Effects of Evening Blue Light Exposure on Sleep and Circadian Rhythms.” <em>Nature and Science of Sleep</em>, vol. 13, 2021, pp. 1405–18. PubMed Central.</div>
+          <div><a class="cite-link" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8512728/" target="_blank" rel="noopener">ncbi.nlm.nih.gov/pmc/articles/PMC8512728</a></div>
+        </div>
+
+        <div>
+          <div><strong>Tarokh, Leila, et al.</strong> “Sleep and the Adolescent Brain: Changes in Sleep Patterns and Neurobehavioral Function.” <em>Current Opinion in Physiology</em>, vol. 15, 2020, pp. 155–61.</div>
+          <div><a class="cite-link" href="https://doi.org/10.1016/j.cophys.2020.04.004" target="_blank" rel="noopener">doi.org/10.1016/j.cophys.2020.04.004</a></div>
+        </div>
+
+        <div>
+          <div><strong>Thaler, Richard H., and Cass R. Sunstein.</strong> <em>Nudge: Improving Decisions about Health, Wealth, and Happiness</em>. Penguin Books, 2009.</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // simple intersection observer to reveal sections
+    const io = new IntersectionObserver((entries)=>{
+      for(const e of entries){
+        if(e.isIntersecting) e.target.classList.add('visible');
+      }
+    }, {threshold:0.12});
+
+    document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+    // smooth scrolling for nav links
+    document.querySelectorAll('nav a').forEach(a=>{
+      a.addEventListener('click', (ev)=>{
+        ev.preventDefault();
+        const href = a.getAttribute('href');
+        const el = document.querySelector(href);
+        if(el){
+          window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 64, behavior:'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
